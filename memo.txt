@@ -1,0 +1,10 @@
+1/ CMD
+* Install
+>py -m pip install djangorestframework pipenv( psycopg2)
+* pipenv
+lead_manage_reactjs_django>pipenv shell
+-> create file "Pipfile"
+* pipenv install
+lead_manage_reactjs_django>pipenv install django-rest-knox
+* check pipenv
+>pip show pipenv
