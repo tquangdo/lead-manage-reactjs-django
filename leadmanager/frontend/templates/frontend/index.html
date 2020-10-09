@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.ibb.co/GPqdyv1/dotq.jpg?w=1200&h=1200">
+    {% comment %} <link rel="icon" href="{% static 'frontend/images/dotq.jpg' %}"> {% endcomment %}
     <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
-    <title>Lead Manager</title>
+    <title>User Manager</title>
 </head>
 
 <body>
     <div id="app-id"></div>
-    {% load static %}
-    <script src="{% static "frontend/main.js" %}"></script>
+    <script src="{% static 'frontend/main.js' %}"></script>
     <!-- https://getbootstrap.com/ > GetStarted > JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

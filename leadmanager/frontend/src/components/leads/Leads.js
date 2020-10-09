@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { getLeads } from '../../actions/leads'
+import { getLeads, deleteLead } from '../../actions/leads'
 
 export class Leads extends Component {
     componentDidMount = () => {
@@ -8,10 +8,10 @@ export class Leads extends Component {
     }
 
     render() {
-        const { leadsProps } = this.props
+        const { leadsProps, deleteLead } = this.props
         return (
             <Fragment>
-                <h2>Leads</h2>
+                <h2>Users</h2>
                 <div className="table-responsive">
                     <table className="table table-striped">
                         <thead>
@@ -23,14 +23,14 @@ export class Leads extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {leadsProps.map((lead_item) => (
-                                <tr key={lead_item.id} >
-                                    <th scope="row">{lead_item.id}</th>
+                            {leadsProps.map((lead_item, chiso) => (
+                                <tr key={chiso} >
+                                    <th scope="row">{chiso + 1}</th>
                                     <td>{lead_item.name}</td>
                                     <td>{lead_item.email}</td>
                                     <td>{lead_item.message}</td>
                                     <td>
-                                        <button className="btn btn-danger" onClick={null} >Delete</button>
+                                        <button className="btn btn-danger" onClick={() => deleteLead(lead_item.id)} >Delete</button>
                                     </td>
                                 </tr>
                             ))}
@@ -44,7 +44,6 @@ export class Leads extends Component {
 
 const mapStateToProps = state => ({
     leadsProps: state.leadsReducer.leadsState,
-});
+})
 
-// export default connect(mapStateToProps, { getLeads, deleteLead })(Leads)
-export default connect(mapStateToProps, { getLeads })(Leads)
+export default connect(mapStateToProps, { getLeads, deleteLead })(Leads)

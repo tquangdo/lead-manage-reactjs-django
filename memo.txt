@@ -8,3 +8,13 @@ lead_manage_reactjs_django>pipenv shell
 lead_manage_reactjs_django>pipenv install django-rest-knox
 * check pipenv
 >pip show pipenv
+
+2/ URL:
+2.a) FE
+http://localhost:8000/
+2.b) API
+* GET leads: http://localhost:8000/api/leads
+* POST register: http://localhost:8000/api/auth/register
+* POST login・logout (logout with token): http://localhost:8000/api/auth/login・logout
+* GET user (with token): http://localhost:8000/api/auth/user
+

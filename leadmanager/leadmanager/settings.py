@@ -39,8 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'leads',
     'rest_framework',
-    'frontend'  # 'frontend vừa là startapp of python vừa là folder có cấu trúc src/components của React'
+    'frontend',  # 'frontend vừa là startapp of python vừa là folder có cấu trúc src/components của React'
+    'knox',
+    'accounts'
 ]
+
+# phải thêm vô sau khi install "django-rest-knox"
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+    # có "," là tuple (iterable), KO có là string, sẽ báo lỗi l/q: "return [auth() for auth in self.authentication_classes]"
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,6 +86,14 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 
 DATABASES = {
     'default': {
+        # TH postgre:
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'lead_manager_forked',
+        # 'USER': 'root',
+        # 'PASSWORD': 'admin123',
+        # 'HOST': 'localhost',
+        # 'PORT': '',
+        # TH sqlite3:
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
